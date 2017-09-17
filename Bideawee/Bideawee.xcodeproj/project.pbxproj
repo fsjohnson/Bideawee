@@ -7,20 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5939B551F6E2B8700BB8A08 /* ResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B541F6E2B8700BB8A08 /* ResultsCollectionViewController.swift */; };
+		B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */; };
+		B5939B591F6E2DC300BB8A08 /* AnimalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B581F6E2DC300BB8A08 /* AnimalCollectionViewCell.swift */; };
+		B5EB59511F6EF6CD006BFED4 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */; };
+		B5EB59531F6EF6FA006BFED4 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */; };
 		B5F4F7AD1F645303005F5F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */; };
 		B5F4F7AF1F645303005F5F9F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */; };
 		B5F4F7B41F645303005F5F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F4F7B31F645303005F5F9F /* Assets.xcassets */; };
-		B5F4F7B71F645303005F5F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F4F7B51F645303005F5F9F /* LaunchScreen.storyboard */; };
 		B5F4F7BF1F65A6AE005F5F9F /* MyPickerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */; };
 		B5F4F7C11F65C72F005F5F9F /* UITextField+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4F7C01F65C72F005F5F9F /* UITextField+PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5939B541F6E2B8700BB8A08 /* ResultsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCollectionViewController.swift; sourceTree = "<group>"; };
+		B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
+		B5939B581F6E2DC300BB8A08 /* AnimalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		B5F4F7A91F645303005F5F9F /* Bideawee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bideawee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B5F4F7B31F645303005F5F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5F4F7B61F645303005F5F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F4F7B81F645303005F5F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPickerCustomView.swift; sourceTree = "<group>"; };
 		B5F4F7C01F65C72F005F5F9F /* UITextField+PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+PickerView.swift"; sourceTree = "<group>"; };
@@ -58,10 +66,14 @@
 			children = (
 				B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */,
 				B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */,
+				B5939B541F6E2B8700BB8A08 /* ResultsCollectionViewController.swift */,
 				B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */,
+				B5939B581F6E2DC300BB8A08 /* AnimalCollectionViewCell.swift */,
+				B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */,
+				B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */,
+				B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */,
 				B5F4F7C01F65C72F005F5F9F /* UITextField+PickerView.swift */,
 				B5F4F7B31F645303005F5F9F /* Assets.xcassets */,
-				B5F4F7B51F645303005F5F9F /* LaunchScreen.storyboard */,
 				B5F4F7B81F645303005F5F9F /* Info.plist */,
 			);
 			path = Bideawee;
@@ -126,7 +138,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F4F7B71F645303005F5F9F /* LaunchScreen.storyboard in Resources */,
 				B5F4F7B41F645303005F5F9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,24 +150,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5F4F7BF1F65A6AE005F5F9F /* MyPickerCustomView.swift in Sources */,
+				B5939B591F6E2DC300BB8A08 /* AnimalCollectionViewCell.swift in Sources */,
+				B5EB59531F6EF6FA006BFED4 /* CustomColor.swift in Sources */,
+				B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */,
+				B5939B551F6E2B8700BB8A08 /* ResultsCollectionViewController.swift in Sources */,
 				B5F4F7AF1F645303005F5F9F /* SearchViewController.swift in Sources */,
+				B5EB59511F6EF6CD006BFED4 /* CustomFont.swift in Sources */,
 				B5F4F7C11F65C72F005F5F9F /* UITextField+PickerView.swift in Sources */,
 				B5F4F7AD1F645303005F5F9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B5F4F7B51F645303005F5F9F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5F4F7B61F645303005F5F9F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B5F4F7B91F645303005F5F9F /* Debug */ = {
@@ -295,6 +300,7 @@
 				B5F4F7BD1F645303005F5F9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
