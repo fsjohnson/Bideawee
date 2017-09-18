@@ -11,7 +11,7 @@ import UIKit
 
 class ResultsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private let collectionView = UICollectionView()
+    private var collectionView: UICollectionView!
     var animals = [Animal]()
     
     var sectionInsets: UIEdgeInsets!
@@ -24,6 +24,7 @@ class ResultsCollectionViewController: UIViewController, UICollectionViewDelegat
     var insetSpacing: CGFloat!
     var minimumInterItemSpacing: CGFloat!
     var minimumLineSpacing: CGFloat!
+    let layout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class ResultsCollectionViewController: UIViewController, UICollectionViewDelegat
     func setUpView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
