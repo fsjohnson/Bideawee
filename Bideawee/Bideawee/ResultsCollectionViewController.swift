@@ -9,15 +9,13 @@
 import Foundation
 import UIKit
 
-//private struct Layout {
-//    static let cellSpacing: CGFloat = 5
-//}
-
 class ResultsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private let layout = UICollectionViewFlowLayout()
     private let collectionView: UICollectionView
     var animals = [Animal]()
+    
+    // TODO - init based on type: Favorites vs. Results (to know what to set title as)
     
     init() {
         let flowLayout                     = UICollectionViewFlowLayout()
@@ -40,9 +38,11 @@ class ResultsCollectionViewController: UIViewController, UICollectionViewDelegat
     func setUpView() {
 
         view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(AnimalCollectionViewCell.self, forCellWithReuseIdentifier: "imageCell")
         
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +62,8 @@ class ResultsCollectionViewController: UIViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return animals.count
+//        return animals.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
