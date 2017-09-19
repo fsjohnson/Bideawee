@@ -16,8 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        let barAppearance = UINavigationBar.appearance()
+        barAppearance.barTintColor = UIColor.black
+        barAppearance.tintColor = UIColor.white
+        barAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         let searchViewController = SearchViewController()
-        window?.rootViewController = searchViewController
+        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        searchViewController.title = "Search Pets"
+        
+        let resultsViewController = ResultsCollectionViewController()
+        resultsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
+        let searchNavController = UINavigationController(rootViewController: searchViewController)
+        let resultsNavController = UINavigationController(rootViewController: resultsViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barTintColor = .black
+        tabBarController.tabBar.tintColor = UIColor.themePink
+        tabBarController.viewControllers = [searchNavController, resultsNavController]
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true
