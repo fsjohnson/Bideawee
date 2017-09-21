@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         searchViewController.title = "Search Pets"
         
-        let resultsViewController = ResultsCollectionViewController()
+        let resultsViewController = ResultsTableViewController()
         resultsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         let searchNavController = UINavigationController(rootViewController: searchViewController)

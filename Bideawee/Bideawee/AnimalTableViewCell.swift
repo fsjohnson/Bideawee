@@ -1,5 +1,5 @@
 //
-//  AnimalCollectionViewCell.swift
+//  AnimalTableViewCell.swift
 //  Bideawee
 //
 //  Created by Felicity Johnson on 9/17/17.
@@ -14,20 +14,19 @@ private struct Layout {
     static let descriptionLabelHeight: CGFloat = 50.0
 }
 
-class AnimalCollectionViewCell: UICollectionViewCell {
+class AnimalTableViewCell: UITableViewCell {
     
     var animalPic = UIImageView()
     var nameLabel = UILabel()
     var descriptionLabel = UILabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setUpView()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+         setUpView()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Error in AnimalCollectionViewCell")
+        fatalError("Error in AnimalTableViewCell")
     }
     
     func setUpView() {
@@ -36,6 +35,10 @@ class AnimalCollectionViewCell: UICollectionViewCell {
         addSubview(descriptionLabel)
         
         animalPic.contentMode = .scaleAspectFit
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.clipsToBounds = true
         
         animalPic.translatesAutoresizingMaskIntoConstraints = false
         animalPic.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
