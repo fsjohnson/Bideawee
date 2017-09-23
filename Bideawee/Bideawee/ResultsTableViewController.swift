@@ -39,6 +39,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         tableView.register(AnimalTableViewCell.self, forCellReuseIdentifier: "imageCell")
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 300
+        tableView.isUserInteractionEnabled = true
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +56,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        return animals.count
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,8 +66,6 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         cell.animalPic.image = UIImage(imageLiteralResourceName: "catPic")
         cell.nameLabel.text = "Tiffany"
         cell.descriptionLabel.text = "Loving and kind, Leo is as gentle as it gets. Leo is a one year old male Domestic Shorthair with an exotic look. Leo has a long and illustrious face with big ears. At 11 pounds, he's on the larger side, which just adds to his intriguing appearance. Leo is a wonderful cat, although he can be slightly timid at first. But with a few scratches behind the ears and some sweet words, Leo begins to open up. He'll lean into your hand for more pets and you'll begin to hear a low purr come from his body. Leo is also big fan of scratches on the back, as you can tell from the way his behind begins to rise high in the air. Leo gets along great with other cats and would be a wonderful companion if you already have a feline. If this gentle soul seems like the one for you, come adopt Leo today!"
-        cell.layer.borderWidth = 2.0
-        cell.layer.borderColor = UIColor.black.cgColor
         return cell
     }
 }

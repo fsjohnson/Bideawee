@@ -11,7 +11,7 @@ import UIKit
 
 private struct Layout {
     static let animalPicWidthHeight: CGFloat = 60.0
-    static let descriptionLabelHeight: CGFloat = 50.0
+    static let descriptionLabelHeight: CGFloat = 200.0
 }
 
 class AnimalTableViewCell: UITableViewCell {
@@ -30,15 +30,17 @@ class AnimalTableViewCell: UITableViewCell {
     }
     
     func setUpView() {
+        self.isUserInteractionEnabled = true
+        
         addSubview(animalPic)
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         
         animalPic.contentMode = .scaleAspectFit
+        nameLabel.textAlignment = .center
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.clipsToBounds = true
         
         animalPic.translatesAutoresizingMaskIntoConstraints = false
         animalPic.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -55,5 +57,7 @@ class AnimalTableViewCell: UITableViewCell {
         descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: Layout.descriptionLabelHeight).isActive = true
     }
 }
