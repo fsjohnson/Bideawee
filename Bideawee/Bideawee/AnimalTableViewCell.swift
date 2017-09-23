@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 private struct Layout {
-    static let animalPicWidthHeight: CGFloat = 60.0
-    static let descriptionLabelHeight: CGFloat = 200.0
+    static let animalPicWidthHeight: CGFloat = 200.0
 }
 
 class AnimalTableViewCell: UITableViewCell {
@@ -40,7 +39,7 @@ class AnimalTableViewCell: UITableViewCell {
         nameLabel.textAlignment = .center
         
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.lineBreakMode = .byTruncatingTail
         
         animalPic.translatesAutoresizingMaskIntoConstraints = false
         animalPic.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -58,6 +57,5 @@ class AnimalTableViewCell: UITableViewCell {
         descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalToConstant: Layout.descriptionLabelHeight).isActive = true
     }
 }

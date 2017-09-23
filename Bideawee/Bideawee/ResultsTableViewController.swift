@@ -50,7 +50,7 @@ class ResultsTableViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.register(AnimalTableViewCell.self, forCellReuseIdentifier: "imageCell")
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 300
+        tableView.rowHeight = 370
         tableView.isUserInteractionEnabled = true
         
         view.addSubview(tableView)
