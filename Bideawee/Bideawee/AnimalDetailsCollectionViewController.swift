@@ -11,6 +11,7 @@ import UIKit
 
 private struct Layout {
     static let cellPadding: CGFloat = 5
+    static let imageViewWidthHeight: CGFloat = 160
 }
 
 enum AnimalSections: Int {
@@ -35,6 +36,7 @@ enum AnimalRows {
 class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //MARK: - Private properties
+    private let animalImageView = UIImageView()
     private let collectionView: UICollectionView
     private let animalSections: [AnimalSections] = [.speciesBreed, .ageSex, .sizeColor]
     
@@ -70,13 +72,21 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         
         collectionView.register(AnimalDetailCollectionViewCell.self, forCellWithReuseIdentifier: "detailCell")
         
+        animalImageView.image = UIImage(named: "catPic")
+        view.addSubview(animalImageView)
+        animalImageView.translatesAutoresizingMaskIntoConstraints = false
+        animalImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        animalImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
+        animalImageView.widthAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
+        animalImageView.heightAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
+        
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        collectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: animalImageView.bottomAnchor, constant: 20).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
-        collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         collectionView.reloadData()
         
