@@ -12,6 +12,7 @@ import UIKit
 private struct Layout {
     static let cellPadding: CGFloat = 5
     static let imageViewWidthHeight: CGFloat = 160
+    static let starImageViewWidthHeight: CGFloat = 70
 }
 
 enum AnimalSections: Int {
@@ -37,13 +38,18 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
     
     //MARK: - Private properties
     private let animalImageView = UIImageView()
+    private let starImageViewButton = UIButton()
+    private var starImage: UIImage?
+    private var isStarred = false // TODO base this off of CD property 
     private let collectionView: UICollectionView
     private let animalSections: [AnimalSections] = [.speciesBreed, .ageSex, .sizeColor]
     
     //MARK: - Public properties
-    var animals = [Animal]()
+    //    var animal: Animal
     
+    // TODO - init with animal
     init() {
+//        self.animal = animal
         let flowLayout                     = UICollectionViewFlowLayout()
         flowLayout.scrollDirection         = .vertical
         flowLayout.minimumLineSpacing      = 0
@@ -64,6 +70,7 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
     
     private func setUpView() {
         
+        title =  "Leo"
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
         
@@ -76,9 +83,22 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         view.addSubview(animalImageView)
         animalImageView.translatesAutoresizingMaskIntoConstraints = false
         animalImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        animalImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
+        animalImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
         animalImageView.widthAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
         animalImageView.heightAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
+        animalImageView.layer.cornerRadius = Layout.imageViewWidthHeight/2.0
+        animalImageView.clipsToBounds = true
+        
+        starImage = isStarred ? UIImage(named: "fullStar") : UIImage(named: "openStar")
+        starImageViewButton.setImage(starImage, for: .normal)
+        starImageViewButton.addTarget(self, action: #selector(unfavoriteAnimal), for: .touchUpInside)
+        
+        view.addSubview(starImageViewButton)
+        starImageViewButton.translatesAutoresizingMaskIntoConstraints = false
+        starImageViewButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
+        starImageViewButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
+        starImageViewButton.widthAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
+        starImageViewButton.heightAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
         
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +115,7 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let cvWidth = collectionView.frame.size.width - (2 * Layout.cellPadding)
-        return CGSize(width: cvWidth/2, height: 150)
+        return CGSize(width: cvWidth/2, height: 130)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -151,6 +171,20 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         cell.layer.borderWidth = 1.0
 
         return cell
+    }
+    
+    func unfavoriteAnimal() {
+        
+        if isStarred {
+            isStarred = false
+            starImage = UIImage(named: "openStar")
+            
+        } else {
+            isStarred = true
+            starImage = UIImage(named: "fullStar")
+        }
+        
+        starImageViewButton.setImage(starImage, for: .normal)
     }
     
 }

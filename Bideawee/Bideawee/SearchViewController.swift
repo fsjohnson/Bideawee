@@ -156,8 +156,7 @@ class SearchViewController: UIViewController {
     }
     
     func searchButtonClicked() {
-        print("search")
-        let vc = ResultsTableViewController()
-        self.navigationController?.present(vc, animated: true, completion: nil)
+        let vc = ResultsTableViewController(vcType: .results)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
