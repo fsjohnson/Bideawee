@@ -10,6 +10,8 @@ import Foundation
 
 struct Animal {
     let type: String?
+    let species: String?
+    let colors: [String]?
     let sex: String?
     let breed: String?
     let name: String?
@@ -21,6 +23,8 @@ struct Animal {
     
     init(dict: [String:Any]) {
         self.type = dict["animal"] as? String
+        self.species = dict["species"] as? String
+        self.colors = dict["colors"] as? [String]
         self.sex = dict["sex"] as? String
         self.age = dict["age"] as? String
         self.size = dict["size"] as? String
@@ -30,8 +34,10 @@ struct Animal {
         self.description = dict["description"] as? String
     }
     
-    init(type: String, sex: String, breed: String, name: String, imageLink: String, age: String, size: String, description: String) {
+    init(type: String, species: String, colors: [String], sex: String, breed: String, name: String, imageLink: String, age: String, size: String, description: String) {
         self.type = type
+        self.species = species
+        self.colors = colors
         self.sex = sex
         self.breed = breed
         self.name = name

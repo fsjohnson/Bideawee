@@ -25,16 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         searchViewController.title = "Search Pets"
         
-        let resultsViewController = ResultsCollectionViewController()
-        resultsViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        let favoritesViewController = ResultsTableViewController(vcType: .favorites)
+        favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         let searchNavController = UINavigationController(rootViewController: searchViewController)
-        let resultsNavController = UINavigationController(rootViewController: resultsViewController)
+        let favoritesNavController = UINavigationController(rootViewController: favoritesViewController)
         
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barTintColor = .black
         tabBarController.tabBar.tintColor = UIColor.themePink
-        tabBarController.viewControllers = [searchNavController, resultsNavController]
+        tabBarController.viewControllers = [searchNavController, favoritesNavController]
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
