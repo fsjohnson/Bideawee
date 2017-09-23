@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B53DAF121F6F4EE000F7D385 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53DAF111F6F4EE000F7D385 /* Launch Screen.storyboard */; };
 		B53DAF141F70A10900F7D385 /* NavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */; };
-		B53DAF161F749E3A00F7D385 /* AnimalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DAF151F749E3A00F7D385 /* AnimalDetailsViewController.swift */; };
+		B53DAF161F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DAF151F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift */; };
 		B53DAF181F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53DAF171F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift */; };
 		B5939B551F6E2B8700BB8A08 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */; };
 		B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */; };
@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		B53DAF111F6F4EE000F7D385 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+StatusBar.swift"; sourceTree = "<group>"; };
-		B53DAF151F749E3A00F7D385 /* AnimalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailsViewController.swift; sourceTree = "<group>"; };
+		B53DAF151F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		B53DAF171F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */,
 				B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */,
 				B5939B581F6E2DC300BB8A08 /* AnimalTableViewCell.swift */,
-				B53DAF151F749E3A00F7D385 /* AnimalDetailsViewController.swift */,
+				B53DAF151F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift */,
 				B53DAF171F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift */,
 				B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */,
 				B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */,
@@ -166,7 +166,7 @@
 				B5939B591F6E2DC300BB8A08 /* AnimalTableViewCell.swift in Sources */,
 				B5EB59531F6EF6FA006BFED4 /* CustomColor.swift in Sources */,
 				B53DAF141F70A10900F7D385 /* NavigationController+StatusBar.swift in Sources */,
-				B53DAF161F749E3A00F7D385 /* AnimalDetailsViewController.swift in Sources */,
+				B53DAF161F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift in Sources */,
 				B53DAF181F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift in Sources */,
 				B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */,
 				B5939B551F6E2B8700BB8A08 /* ResultsTableViewController.swift in Sources */,

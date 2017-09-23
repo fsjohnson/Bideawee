@@ -16,8 +16,8 @@ private struct Layout {
 
 class AnimalDetailCollectionViewCell: UICollectionViewCell {
     
-    private let titelLabel = UILabel()
-    private let detailsLabel = UILabel()
+    let titleLabel = UILabel()
+    let detailsLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,21 +29,23 @@ class AnimalDetailCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpView() {
-        addSubview(titelLabel)
+        addSubview(titleLabel)
         addSubview(detailsLabel)
         
-        titelLabel.textAlignment = .center
+        titleLabel.textAlignment = .center
         detailsLabel.textAlignment = .center
+        detailsLabel.lineBreakMode = .byWordWrapping
+        detailsLabel.numberOfLines = 0
         
-        titelLabel.translatesAutoresizingMaskIntoConstraints = false
-        titelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        titelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        titelLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: Layout.titleLabelWidthOffset).isActive = true
-        titelLabel.heightAnchor.constraint(equalToConstant: Layout.titleLabelHeight).isActive = true
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: Layout.titleLabelWidthOffset).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: Layout.titleLabelHeight).isActive = true
         
         detailsLabel.translatesAutoresizingMaskIntoConstraints = false
         detailsLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        detailsLabel.topAnchor.constraint(equalTo: titelLabel.bottomAnchor, constant: 10).isActive = true
+        detailsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         detailsLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: Layout.titleLabelWidthOffset).isActive = true
         detailsLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
     }
