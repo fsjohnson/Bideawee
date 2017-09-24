@@ -20,17 +20,32 @@ class DetailTopView: UIView {
     private let animalImageView = UIImageView()
     private let starImageViewButton = UIButton()
     private var starImage: UIImage?
-    private var isStarred = false // TODO base this off of CD property
     
     //MARK: - Public properties
-    var starButtonHandler: (()->())?
+
+    // TODO base this off of CD property
+    var isStarred = false {
+        didSet {
+            starImage = isStarred ? UIImage(named: "openStar") : UIImage(named: "fullStar")
+            starImageViewButton.setImage(starImage, for: .normal)
+        }
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        setUpView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func setUpView() {
         animalImageView.image = UIImage(named: "catPic")
         addSubview(animalImageView)
         animalImageView.translatesAutoresizingMaskIntoConstraints = false
         animalImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        animalImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 80).isActive = true
+        animalImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         animalImageView.widthAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
         animalImageView.heightAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
         animalImageView.layer.cornerRadius = Layout.imageViewWidthHeight/2.0
@@ -43,10 +58,16 @@ class DetailTopView: UIView {
         addSubview(starImageViewButton)
         starImageViewButton.translatesAutoresizingMaskIntoConstraints = false
         starImageViewButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        starImageViewButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 80).isActive = true
+        starImageViewButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         starImageViewButton.widthAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
         starImageViewButton.heightAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
     }
     
-    func unf
+    func unfavoriteAnimal() {
+        if isStarred {
+            isStarred = false
+        } else {
+            isStarred = true
+        }
+    }
 }

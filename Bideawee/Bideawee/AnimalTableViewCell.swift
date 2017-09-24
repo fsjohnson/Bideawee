@@ -32,6 +32,7 @@ class AnimalTableViewCell: UITableViewCell {
         self.isUserInteractionEnabled = true
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 1.0
+        self.selectionStyle = .none
         
         addSubview(animalPic)
         addSubview(nameLabel)
