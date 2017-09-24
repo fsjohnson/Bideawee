@@ -31,6 +31,13 @@ class DetailTopView: UIView {
         }
     }
     
+    var imageName: String? {
+        didSet {
+            let name = imageName ?? "Bideawee"
+            animalImageView.image = UIImage(named: name)
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         setUpView()
@@ -41,7 +48,6 @@ class DetailTopView: UIView {
     }
     
     private func setUpView() {
-        animalImageView.image = UIImage(named: "catPic")
         addSubview(animalImageView)
         animalImageView.translatesAutoresizingMaskIntoConstraints = false
         animalImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true

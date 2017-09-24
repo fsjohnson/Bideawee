@@ -44,11 +44,11 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
     private let animalSections: [AnimalSections] = [.speciesBreed, .ageSex, .sizeColor]
     
     //MARK: - Public properties
-    //    var animal: Animal
+    let animal: Animal
     
     // TODO - init with animal
-    init() {
-//        self.animal = animal
+    init(animal: Animal) {
+        self.animal = animal
         let flowLayout                     = UICollectionViewFlowLayout()
         flowLayout.scrollDirection         = .vertical
         flowLayout.minimumLineSpacing      = 0
@@ -97,6 +97,7 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         scrollView.addSubview(detailTopView)
+        detailTopView.imageName = animal.imageLink
         detailTopView.translatesAutoresizingMaskIntoConstraints = false
         detailTopView.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor).isActive = true
         detailTopView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 10).isActive = true
@@ -106,7 +107,7 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.font = UIFont.themeSmallRegular
-        descriptionLabel.text = "Loving and kind, Leo is as gentle as it gets. Leo is a one year old male Domestic Shorthair with an exotic look. Leo has a long and illustrious face with big ears. At 11 pounds, he's on the larger side, which just adds to his intriguing appearance. Leo is a wonderful cat, although he can be slightly timid at first. But with a few scratches behind the ears and some sweet words, Leo begins to open up. He'll lean into your hand for more pets and you'll begin to hear a low purr come from his body. Leo is also big fan of scratches on the back, as you can tell from the way his behind begins to rise high in the air. Leo gets along great with other cats and would be a wonderful companion if you already have a feline. If this gentle soul seems like the one for you, come adopt Leo today!"
+        descriptionLabel.text = animal.description
         
         scrollView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -155,27 +156,27 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         switch row {
         case .species:
             cell.titleLabel.text = "Species"
-            cell.detailsLabel.text = "Cat"
+            cell.detailsLabel.text = animal.species?.capitalized
             
         case .breed:
             cell.titleLabel.text = "Breed"
-            cell.detailsLabel.text = "Domestic Shorthair, Mix"
+            cell.detailsLabel.text = animal.breed?.capitalized
             
         case .age:
             cell.titleLabel.text = "Age"
-            cell.detailsLabel.text = "1 yr 6 mos"
+            cell.detailsLabel.text = animal.age ?? "N/A"
             
         case .sex:
             cell.titleLabel.text = "Sex"
-            cell.detailsLabel.text = "F"
+            cell.detailsLabel.text = animal.sex?.capitalized
             
         case .size:
             cell.titleLabel.text = "Size"
-            cell.detailsLabel.text = "M"
+            cell.detailsLabel.text = animal.size?.capitalized
             
         case .color:
             cell.titleLabel.text = "Color"
-            cell.detailsLabel.text = "Brown"
+            cell.detailsLabel.text = animal.colors?.joined(separator: ",").capitalized
             
         default:
             break
