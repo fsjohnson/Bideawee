@@ -9,7 +9,17 @@
 import Foundation
 import UIKit
 
-extension UITextField {
+class CustomTextField: UITextField {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(10, 10, 10, 10)))
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(10, 10, 10, 10)))
+    }
+}
+
+extension CustomTextField {
     func loadDropdownData(data: [String]) {
         self.inputView = MyPickerCustomView(pickerData: data, pickerTextField: self)
     }

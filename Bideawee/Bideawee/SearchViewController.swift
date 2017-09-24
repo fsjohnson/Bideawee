@@ -9,32 +9,20 @@
 import Foundation
 import UIKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
+    
+    private struct Layout {
+        static let subViewHeight: CGFloat = 80
+        static let buttonHeight: CGFloat = 50
+        static let scrollViewHeight: CGFloat = 600
+    }
 
-    private let petData = ["All", "Cat", "Dog"]
-    private let genderData = ["All","Female", "Male"]
-    private let ageData = ["All","< 1 yr", "> 1 yr"]
-    private let locationData = ["All","Manhattan", "New Arrivals", "Westhampton"]
-    private let sortByData = ["All","Breed", "Gender", "Name"]
-    
-    private let petDropDownTextField = UITextField()
-    private let genderDropDownTextField = UITextField()
-    private let ageDropDownTextField = UITextField()
-    private let locationDropDownTextField = UITextField()
-    private let sortByDropDownTextField = UITextField()
-    
-    private let petLabel = UILabel()
-    private let genderLabel = UILabel()
-    private let ageLabel = UILabel()
-    private let locationLabel = UILabel()
-    private let sortLabel = UILabel()
-    
-    private let petStackView = UIStackView()
-    private let genderStackView = UIStackView()
-    private let ageStackView = UIStackView()
-    private let locationStackView = UIStackView()
-    private let sortStackView = UIStackView()
-    
+    private let scrollView = UIScrollView()
+    private let petSubView = SearchSubView(data: ["All", "Cat", "Dog"])
+    private let genderSubView = SearchSubView(data: ["All","Female", "Male"])
+    private let ageSubView = SearchSubView(data: ["All","< 1 yr", "> 1 yr"])
+    private let locationSubView = SearchSubView(data: ["All","Manhattan", "New Arrivals", "Westhampton"])
+    private let sortSubView = SearchSubView(data: ["All","Breed", "Gender", "Name"])
     private let searchButton = UIButton()
     
     override func viewDidLoad() {
@@ -42,11 +30,15 @@ class SearchViewController: UIViewController {
         setUpView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: Layout.scrollViewHeight)
+    }
+    
     private func setUpView() {
         view.backgroundColor = .white
-        
-        let list = [petDropDownTextField, genderDropDownTextField, ageDropDownTextField, locationDropDownTextField, sortByDropDownTextField]
-        setUpDropDowns(with: list)
+        title = "Search"
         
         searchButton.setTitle("Search", for: .normal)
         searchButton.titleLabel?.font = UIFont.themeMediumBold
@@ -56,103 +48,65 @@ class SearchViewController: UIViewController {
         searchButton.layer.borderColor = UIColor.black.cgColor
         searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
         
-        petLabel.text = "Pets:"
-        genderLabel.text = "Gender:"
-        ageLabel.text = "Age:"
-        locationLabel.text = "Location:"
-        sortLabel.text = "Sort By:"
-    }
-    
-    private func setUpDropDowns(with dropDownList: [UITextField]) {
-        
-        petDropDownTextField.loadDropdownData(data: petData)
-        genderDropDownTextField.loadDropdownData(data: genderData)
-        ageDropDownTextField.loadDropdownData(data: ageData)
-        locationDropDownTextField.loadDropdownData(data: locationData)
-        sortByDropDownTextField.loadDropdownData(data: sortByData)
-        
-        dropDownList.forEach { dropDown in
-            dropDown.layer.borderWidth = 1.0
-            dropDown.layer.borderColor = UIColor.black.cgColor
-            dropDown.layer.cornerRadius = 5.0
-            dropDown.addToolBar()
-        }
-        
-        setUpStackViews()
-    }
-    
-    private func setUpStackViews() {
-        petStackView.axis = .vertical
-        petStackView.distribution = .fill
-        petStackView.addArrangedSubview(petLabel)
-        petStackView.addArrangedSubview(petDropDownTextField)
-        
-        genderStackView.axis = .vertical
-        genderStackView.distribution = .fill
-        genderStackView.addArrangedSubview(genderLabel)
-        genderStackView.addArrangedSubview(genderDropDownTextField)
-        
-        ageStackView.axis = .vertical
-        ageStackView.distribution = .fill
-        ageStackView.addArrangedSubview(ageLabel)
-        ageStackView.addArrangedSubview(ageDropDownTextField)
-        
-        locationStackView.axis = .vertical
-        locationStackView.distribution = .fill
-        locationStackView.addArrangedSubview(locationLabel)
-        locationStackView.addArrangedSubview(locationDropDownTextField)
-        
-        sortStackView.axis = .vertical
-        sortStackView.distribution = .fill
-        sortStackView.addArrangedSubview(sortLabel)
-        sortStackView.addArrangedSubview(sortByDropDownTextField)
+        petSubView.title = "Pets:"
+        genderSubView.title = "Gender:"
+        ageSubView.title = "Age:"
+        locationSubView.title = "Location:"
+        sortSubView.title = "Sort By:"
         
         setUpConstraints()
     }
     
     private func setUpConstraints() {
         
-        view.addSubview(petStackView)
-        petStackView.translatesAutoresizingMaskIntoConstraints = false
-        petStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        petStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        petStackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        petStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        scrollView.addSubview(petSubView)
+        petSubView.translatesAutoresizingMaskIntoConstraints = false
+        petSubView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        petSubView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50).isActive = true
+        petSubView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 0.75).isActive = true
+        petSubView.heightAnchor.constraint(equalToConstant: Layout.subViewHeight).isActive = true
 
-        view.addSubview(genderStackView)
-        genderStackView.translatesAutoresizingMaskIntoConstraints = false
-        genderStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        genderStackView.topAnchor.constraint(equalTo: petStackView.bottomAnchor, constant: 20).isActive = true
-        genderStackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        genderStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scrollView.addSubview(genderSubView)
+        genderSubView.translatesAutoresizingMaskIntoConstraints = false
+        genderSubView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        genderSubView.topAnchor.constraint(equalTo: petSubView.bottomAnchor, constant: 20).isActive = true
+        genderSubView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 0.75).isActive = true
+        genderSubView.heightAnchor.constraint(equalToConstant: Layout.subViewHeight).isActive = true
         
-        view.addSubview(ageStackView)
-        ageStackView.translatesAutoresizingMaskIntoConstraints = false
-        ageStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        ageStackView.topAnchor.constraint(equalTo: genderStackView.bottomAnchor, constant: 20).isActive = true
-        ageStackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        ageStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scrollView.addSubview(ageSubView)
+        ageSubView.translatesAutoresizingMaskIntoConstraints = false
+        ageSubView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        ageSubView.topAnchor.constraint(equalTo: genderSubView.bottomAnchor, constant: 20).isActive = true
+        ageSubView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 0.75).isActive = true
+        ageSubView.heightAnchor.constraint(equalToConstant: Layout.subViewHeight).isActive = true
         
-        view.addSubview(locationStackView)
-        locationStackView.translatesAutoresizingMaskIntoConstraints = false
-        locationStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        locationStackView.topAnchor.constraint(equalTo: ageStackView.bottomAnchor, constant: 20).isActive = true
-        locationStackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        locationStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scrollView.addSubview(locationSubView)
+        locationSubView.translatesAutoresizingMaskIntoConstraints = false
+        locationSubView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        locationSubView.topAnchor.constraint(equalTo: ageSubView.bottomAnchor, constant: 20).isActive = true
+        locationSubView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 0.75).isActive = true
+        locationSubView.heightAnchor.constraint(equalToConstant: Layout.subViewHeight).isActive = true
         
-        view.addSubview(sortStackView)
-        sortStackView.translatesAutoresizingMaskIntoConstraints = false
-        sortStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        sortStackView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, constant: 20).isActive = true
-        sortStackView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        sortStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scrollView.addSubview(sortSubView)
+        sortSubView.translatesAutoresizingMaskIntoConstraints = false
+        sortSubView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        sortSubView.topAnchor.constraint(equalTo: locationSubView.bottomAnchor, constant: 20).isActive = true
+        sortSubView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 0.75).isActive = true
+        sortSubView.heightAnchor.constraint(equalToConstant: Layout.subViewHeight).isActive = true
         
-        view.addSubview(searchButton)
+        scrollView.addSubview(searchButton)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
-        searchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        searchButton.topAnchor.constraint(equalTo: sortStackView.bottomAnchor, constant: 20).isActive = true
+        searchButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        searchButton.topAnchor.constraint(equalTo: sortSubView.bottomAnchor, constant: 20).isActive = true
         searchButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        searchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        searchButton.heightAnchor.constraint(equalToConstant: Layout.buttonHeight).isActive = true
     }
     
     func searchButtonClicked() {
