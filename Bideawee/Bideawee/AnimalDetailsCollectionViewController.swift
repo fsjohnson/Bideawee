@@ -11,8 +11,7 @@ import UIKit
 
 private struct Layout {
     static let cellPadding: CGFloat = 5
-    static let imageViewWidthHeight: CGFloat = 160
-    static let starImageViewWidthHeight: CGFloat = 70
+    static let cellHeight: CGFloat = 120
 }
 
 enum AnimalSections: Int {
@@ -37,10 +36,7 @@ enum AnimalRows {
 class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //MARK: - Private properties
-    private let animalImageView = UIImageView()
-    private let starImageViewButton = UIButton()
-    private var starImage: UIImage?
-    private var isStarred = false // TODO base this off of CD property 
+    private let descriptionLabel = UILabel()
     private let collectionView: UICollectionView
     private let animalSections: [AnimalSections] = [.speciesBreed, .ageSex, .sizeColor]
     
@@ -79,31 +75,22 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         
         collectionView.register(AnimalDetailCollectionViewCell.self, forCellWithReuseIdentifier: "detailCell")
         
-        animalImageView.image = UIImage(named: "catPic")
-        view.addSubview(animalImageView)
-        animalImageView.translatesAutoresizingMaskIntoConstraints = false
-        animalImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        animalImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
-        animalImageView.widthAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
-        animalImageView.heightAnchor.constraint(equalToConstant: Layout.imageViewWidthHeight).isActive = true
-        animalImageView.layer.cornerRadius = Layout.imageViewWidthHeight/2.0
-        animalImageView.clipsToBounds = true
+        view.addSubview(descriptionLabel)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.font = UIFont.themeSmallRegular
+        descriptionLabel.text = "Loving and kind, Leo is as gentle as it gets. Leo is a one year old male Domestic Shorthair with an exotic look. Leo has a long and illustrious face with big ears. At 11 pounds, he's on the larger side, which just adds to his intriguing appearance. Leo is a wonderful cat, although he can be slightly timid at first. But with a few scratches behind the ears and some sweet words, Leo begins to open up. He'll lean into your hand for more pets and you'll begin to hear a low purr come from his body. Leo is also big fan of scratches on the back, as you can tell from the way his behind begins to rise high in the air. Leo gets along great with other cats and would be a wonderful companion if you already have a feline. If this gentle soul seems like the one for you, come adopt Leo today!"
         
-        starImage = isStarred ? UIImage(named: "fullStar") : UIImage(named: "openStar")
-        starImageViewButton.setImage(starImage, for: .normal)
-        starImageViewButton.addTarget(self, action: #selector(unfavoriteAnimal), for: .touchUpInside)
-        
-        view.addSubview(starImageViewButton)
-        starImageViewButton.translatesAutoresizingMaskIntoConstraints = false
-        starImageViewButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-        starImageViewButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
-        starImageViewButton.widthAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
-        starImageViewButton.heightAnchor.constraint(equalToConstant: Layout.starImageViewWidthHeight).isActive = true
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: animalImageView.bottomAnchor, constant: 20).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
         
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: animalImageView.bottomAnchor, constant: 20).isActive = true
+        collectionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
@@ -115,7 +102,7 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let cvWidth = collectionView.frame.size.width - (2 * Layout.cellPadding)
-        return CGSize(width: cvWidth/2, height: 130)
+        return CGSize(width: cvWidth/2, height: Layout.cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

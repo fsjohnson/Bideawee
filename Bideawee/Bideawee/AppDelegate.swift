@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let barAppearance = UINavigationBar.appearance()
         barAppearance.barTintColor = UIColor.black
         barAppearance.tintColor = UIColor.white
-        barAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        barAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.themeMediumBold]
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
