@@ -30,6 +30,9 @@ class AnimalTableViewCell: UITableViewCell {
     
     func setUpView() {
         self.isUserInteractionEnabled = true
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 1.0
+        self.selectionStyle = .none
         
         addSubview(animalPic)
         addSubview(nameLabel)
@@ -37,6 +40,8 @@ class AnimalTableViewCell: UITableViewCell {
         
         animalPic.contentMode = .scaleAspectFit
         nameLabel.textAlignment = .center
+        nameLabel.font = UIFont.themeLargeBold
+        nameLabel.textColor = UIColor.themePink
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byTruncatingTail

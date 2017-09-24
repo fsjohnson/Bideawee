@@ -33,6 +33,8 @@ class AnimalDetailCollectionViewCell: UICollectionViewCell {
         addSubview(detailsLabel)
         
         titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.themeSmallBold
+        titleLabel.textColor = .themePink
         detailsLabel.textAlignment = .center
         detailsLabel.lineBreakMode = .byWordWrapping
         detailsLabel.numberOfLines = 0
