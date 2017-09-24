@@ -57,6 +57,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B57E73C91F78368D008962CC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */,
+				B5EA05451F781B210020A393 /* SearchSubView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B57E73CA1F783699008962CC /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */,
+				B5939B581F6E2DC300BB8A08 /* AnimalTableViewCell.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		B57E73CB1F7836B5008962CC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B53DAF151F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift */,
+				B53DAF171F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift */,
+				B5839CFB1F77F302006A34E7 /* DetailTopView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		B57E73CC1F7836CC008962CC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B5F4F7C01F65C72F005F5F9F /* UITextField+PickerView.swift */,
+				B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */,
+				B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */,
+				B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */,
+				B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		B57E73CD1F7836E5008962CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B5F4F7A01F645302005F5F9F = {
 			isa = PBXGroup;
 			children = (
@@ -78,19 +126,11 @@
 			children = (
 				B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */,
 				B53DAF111F6F4EE000F7D385 /* Launch Screen.storyboard */,
-				B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */,
-				B5EA05451F781B210020A393 /* SearchSubView.swift */,
-				B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */,
-				B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */,
-				B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */,
-				B5939B581F6E2DC300BB8A08 /* AnimalTableViewCell.swift */,
-				B53DAF151F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift */,
-				B53DAF171F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift */,
-				B5839CFB1F77F302006A34E7 /* DetailTopView.swift */,
-				B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */,
-				B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */,
-				B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */,
-				B5F4F7C01F65C72F005F5F9F /* UITextField+PickerView.swift */,
+				B57E73C91F78368D008962CC /* Search */,
+				B57E73CA1F783699008962CC /* Results */,
+				B57E73CB1F7836B5008962CC /* Details */,
+				B57E73CD1F7836E5008962CC /* Model */,
+				B57E73CC1F7836CC008962CC /* Custom */,
 				B5F4F7B31F645303005F5F9F /* Assets.xcassets */,
 				B5F4F7B81F645303005F5F9F /* Info.plist */,
 			);
