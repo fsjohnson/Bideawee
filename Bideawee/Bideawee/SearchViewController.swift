@@ -14,7 +14,7 @@ final class SearchViewController: UIViewController {
     private struct Layout {
         static let subViewHeight: CGFloat = 80
         static let buttonHeight: CGFloat = 50
-        static let scrollViewHeight: CGFloat = 600
+        static let scrollViewHeight: CGFloat = 620
     }
 
     private let scrollView = UIScrollView()
