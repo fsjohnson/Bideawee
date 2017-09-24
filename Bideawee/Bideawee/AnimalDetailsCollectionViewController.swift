@@ -67,6 +67,16 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         setUpView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let detailTopViewHeight = detailTopView.bounds.height
+        let descriptionLabelHeight = descriptionLabel.bounds.height
+        let collectionViewHeight = collectionView.bounds.height
+        
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 40 + detailTopViewHeight + descriptionLabelHeight + collectionViewHeight)
+    }
+    
     private func setUpView() {
         
         title =  "Leo"
@@ -115,16 +125,6 @@ class AnimalDetailsCollectionViewController: UIViewController, UICollectionViewD
         
         collectionView.reloadData()
         
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        let detailTopViewHeight = detailTopView.bounds.height
-        let descriptionLabelHeight = descriptionLabel.bounds.height
-        let collectionViewHeight = collectionView.bounds.height
-        
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 40 + detailTopViewHeight + descriptionLabelHeight + collectionViewHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -15,6 +15,7 @@
 		B5939B551F6E2B8700BB8A08 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */; };
 		B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */; };
 		B5939B591F6E2DC300BB8A08 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5939B581F6E2DC300BB8A08 /* AnimalTableViewCell.swift */; };
+		B5EA05461F781B210020A393 /* SearchSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EA05451F781B210020A393 /* SearchSubView.swift */; };
 		B5EB59511F6EF6CD006BFED4 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */; };
 		B5EB59531F6EF6FA006BFED4 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */; };
 		B5F4F7AD1F645303005F5F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		B5939B561F6E2CE600BB8A08 /* AnimalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalModel.swift; sourceTree = "<group>"; };
 		B5939B581F6E2DC300BB8A08 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		B5EA05451F781B210020A393 /* SearchSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSubView.swift; sourceTree = "<group>"; };
 		B5EB59501F6EF6CD006BFED4 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		B5EB59521F6EF6FA006BFED4 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		B5F4F7A91F645303005F5F9F /* Bideawee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bideawee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 				B5F4F7AC1F645303005F5F9F /* AppDelegate.swift */,
 				B53DAF111F6F4EE000F7D385 /* Launch Screen.storyboard */,
 				B5F4F7AE1F645303005F5F9F /* SearchViewController.swift */,
+				B5EA05451F781B210020A393 /* SearchSubView.swift */,
 				B5939B541F6E2B8700BB8A08 /* ResultsTableViewController.swift */,
 				B5F4F7BE1F65A6AE005F5F9F /* MyPickerCustomView.swift */,
 				B53DAF131F70A10900F7D385 /* NavigationController+StatusBar.swift */,
@@ -173,6 +176,7 @@
 				B53DAF161F749E3A00F7D385 /* AnimalDetailsCollectionViewController.swift in Sources */,
 				B53DAF181F75E63200F7D385 /* AnimalDetailCollectionViewCell.swift in Sources */,
 				B5939B571F6E2CE700BB8A08 /* AnimalModel.swift in Sources */,
+				B5EA05461F781B210020A393 /* SearchSubView.swift in Sources */,
 				B5939B551F6E2B8700BB8A08 /* ResultsTableViewController.swift in Sources */,
 				B5F4F7AF1F645303005F5F9F /* SearchViewController.swift in Sources */,
 				B5EB59511F6EF6CD006BFED4 /* CustomFont.swift in Sources */,
